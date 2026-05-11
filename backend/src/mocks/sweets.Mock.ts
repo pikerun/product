@@ -67,3 +67,4 @@ const sweets = shops.flatMap((shop, i) =>
 
 // JSONとして出力
 console.log(JSON.stringify(sweets, null, 2));
+
