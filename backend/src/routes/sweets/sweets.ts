@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 //fs, pathモジュールのインポート
 import fs from 'fs';
 import path from 'path';
-import { Sweet } from '../types';
+import { Sweet } from '../../types';
 
 const router = express.Router();
 
