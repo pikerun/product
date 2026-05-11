@@ -1,10 +1,694 @@
-  [
-   {
-  "category": "カフェスイーツ",
-    "price": 597,
+[
+  {
+    "id": "s001",
+    "shopId": "shop01",
+    "sweetName": "どら焼き",
+    "shopName": "スイーツ店1",
+    "category": "和菓子",
+    "price": 787,
+    "description": "人気のスイーツです",
+    "tags": [
+      "テイクアウト可"
+    ],
+    "imageUrl": "/images/sweets/1.jpg",
+    "coordinates": {
+      "lat": 43.06,
+      "lng": 141.34
+    }
+  },
+  {
+    "id": "s002",
+    "shopId": "shop01",
+    "sweetName": "モンブラン",
+    "shopName": "スイーツ店1",
+    "category": "洋菓子",
+    "price": 644,
+    "description": "人気のスイーツです",
+    "tags": [
+      "SNS映え"
+    ],
+    "imageUrl": "/images/sweets/2.jpg",
+    "coordinates": {
+      "lat": 43.06,
+      "lng": 141.34
+    }
+  },
+  {
+    "id": "s003",
+    "shopId": "shop01",
+    "sweetName": "どら焼き",
+    "shopName": "スイーツ店1",
+    "category": "和菓子",
+    "price": 481,
+    "description": "人気のスイーツです",
+    "tags": [
+      "人気"
+    ],
+    "imageUrl": "/images/sweets/3.jpg",
+    "coordinates": {
+      "lat": 43.06,
+      "lng": 141.34
+    }
+  },
+  {
+    "id": "s004",
+    "shopId": "shop01",
+    "sweetName": "ロールケーキ",
+    "shopName": "スイーツ店1",
+    "category": "洋菓子",
+    "price": 703,
+    "description": "人気のスイーツです",
+    "tags": [
+      "人気"
+    ],
+    "imageUrl": "/images/sweets/4.jpg",
+    "coordinates": {
+      "lat": 43.06,
+      "lng": 141.34
+    }
+  },
+  {
+    "id": "s005",
+    "shopId": "shop01",
+    "sweetName": "ティラミス",
+    "shopName": "スイーツ店1",
+    "category": "カフェスイーツ",
+    "price": 454,
     "description": "人気のスイーツです",
     "tags": [
       "期間限定"
+    ],
+    "imageUrl": "/images/sweets/5.jpg",
+    "coordinates": {
+      "lat": 43.06,
+      "lng": 141.34
+    }
+  },
+  {
+    "id": "s006",
+    "shopId": "shop01",
+    "sweetName": "チーズケーキ",
+    "shopName": "スイーツ店1",
+    "category": "洋菓子",
+    "price": 733,
+    "description": "人気のスイーツです",
+    "tags": [
+      "期間限定"
+    ],
+    "imageUrl": "/images/sweets/6.jpg",
+    "coordinates": {
+      "lat": 43.06,
+      "lng": 141.34
+    }
+  },
+  {
+    "id": "s007",
+    "shopId": "shop01",
+    "sweetName": "チョコレートケーキ",
+    "shopName": "スイーツ店1",
+    "category": "洋菓子",
+    "price": 501,
+    "description": "人気のスイーツです",
+    "tags": [
+      "テイクアウト可"
+    ],
+    "imageUrl": "/images/sweets/7.jpg",
+    "coordinates": {
+      "lat": 43.06,
+      "lng": 141.34
+    }
+  },
+  {
+    "id": "s008",
+    "shopId": "shop01",
+    "sweetName": "ロールケーキ",
+    "shopName": "スイーツ店1",
+    "category": "洋菓子",
+    "price": 498,
+    "description": "人気のスイーツです",
+    "tags": [
+      "テイクアウト可"
+    ],
+    "imageUrl": "/images/sweets/8.jpg",
+    "coordinates": {
+      "lat": 43.06,
+      "lng": 141.34
+    }
+  },
+  {
+    "id": "s009",
+    "shopId": "shop01",
+    "sweetName": "クッキー",
+    "shopName": "スイーツ店1",
+    "category": "焼き菓子",
+    "price": 438,
+    "description": "人気のスイーツです",
+    "tags": [
+      "テイクアウト可"
+    ],
+    "imageUrl": "/images/sweets/9.jpg",
+    "coordinates": {
+      "lat": 43.06,
+      "lng": 141.34
+    }
+  },
+  {
+    "id": "s010",
+    "shopId": "shop01",
+    "sweetName": "シュークリーム",
+    "shopName": "スイーツ店1",
+    "category": "洋菓子",
+    "price": 530,
+    "description": "人気のスイーツです",
+    "tags": [
+      "テイクアウト可"
+    ],
+    "imageUrl": "/images/sweets/10.jpg",
+    "coordinates": {
+      "lat": 43.06,
+      "lng": 141.34
+    }
+  },
+  {
+    "id": "s011",
+    "shopId": "shop02",
+    "sweetName": "シュークリーム",
+    "shopName": "スイーツ店2",
+    "category": "洋菓子",
+    "price": 365,
+    "description": "人気のスイーツです",
+    "tags": [
+      "期間限定"
+    ],
+    "imageUrl": "/images/sweets/1.jpg",
+    "coordinates": {
+      "lat": 43.07,
+      "lng": 141.35
+    }
+  },
+  {
+    "id": "s012",
+    "shopId": "shop02",
+    "sweetName": "パンケーキ",
+    "shopName": "スイーツ店2",
+    "category": "カフェスイーツ",
+    "price": 326,
+    "description": "人気のスイーツです",
+    "tags": [
+      "テイクアウト可"
+    ],
+    "imageUrl": "/images/sweets/2.jpg",
+    "coordinates": {
+      "lat": 43.07,
+      "lng": 141.35
+    }
+  },
+  {
+    "id": "s013",
+    "shopId": "shop02",
+    "sweetName": "クッキー",
+    "shopName": "スイーツ店2",
+    "category": "焼き菓子",
+    "price": 759,
+    "description": "人気のスイーツです",
+    "tags": [
+      "期間限定"
+    ],
+    "imageUrl": "/images/sweets/3.jpg",
+    "coordinates": {
+      "lat": 43.07,
+      "lng": 141.35
+    }
+  },
+  {
+    "id": "s014",
+    "shopId": "shop02",
+    "sweetName": "大福",
+    "shopName": "スイーツ店2",
+    "category": "和菓子",
+    "price": 430,
+    "description": "人気のスイーツです",
+    "tags": [
+      "SNS映え"
+    ],
+    "imageUrl": "/images/sweets/4.jpg",
+    "coordinates": {
+      "lat": 43.07,
+      "lng": 141.35
+    }
+  },
+  {
+    "id": "s015",
+    "shopId": "shop02",
+    "sweetName": "ロールケーキ",
+    "shopName": "スイーツ店2",
+    "category": "洋菓子",
+    "price": 551,
+    "description": "人気のスイーツです",
+    "tags": [
+      "テイクアウト可"
+    ],
+    "imageUrl": "/images/sweets/5.jpg",
+    "coordinates": {
+      "lat": 43.07,
+      "lng": 141.35
+    }
+  },
+  {
+    "id": "s016",
+    "shopId": "shop02",
+    "sweetName": "大福",
+    "shopName": "スイーツ店2",
+    "category": "和菓子",
+    "price": 660,
+    "description": "人気のスイーツです",
+    "tags": [
+      "人気"
+    ],
+    "imageUrl": "/images/sweets/6.jpg",
+    "coordinates": {
+      "lat": 43.07,
+      "lng": 141.35
+    }
+  },
+  {
+    "id": "s017",
+    "shopId": "shop02",
+    "sweetName": "ティラミス",
+    "shopName": "スイーツ店2",
+    "category": "カフェスイーツ",
+    "price": 448,
+    "description": "人気のスイーツです",
+    "tags": [
+      "期間限定"
+    ],
+    "imageUrl": "/images/sweets/7.jpg",
+    "coordinates": {
+      "lat": 43.07,
+      "lng": 141.35
+    }
+  },
+  {
+    "id": "s018",
+    "shopId": "shop02",
+    "sweetName": "プリン",
+    "shopName": "スイーツ店2",
+    "category": "洋菓子",
+    "price": 614,
+    "description": "人気のスイーツです",
+    "tags": [
+      "人気"
+    ],
+    "imageUrl": "/images/sweets/8.jpg",
+    "coordinates": {
+      "lat": 43.07,
+      "lng": 141.35
+    }
+  },
+  {
+    "id": "s019",
+    "shopId": "shop02",
+    "sweetName": "大福",
+    "shopName": "スイーツ店2",
+    "category": "和菓子",
+    "price": 456,
+    "description": "人気のスイーツです",
+    "tags": [
+      "人気"
+    ],
+    "imageUrl": "/images/sweets/9.jpg",
+    "coordinates": {
+      "lat": 43.07,
+      "lng": 141.35
+    }
+  },
+  {
+    "id": "s020",
+    "shopId": "shop02",
+    "sweetName": "いちごショートケーキ",
+    "shopName": "スイーツ店2",
+    "category": "洋菓子",
+    "price": 451,
+    "description": "人気のスイーツです",
+    "tags": [
+      "人気"
+    ],
+    "imageUrl": "/images/sweets/10.jpg",
+    "coordinates": {
+      "lat": 43.07,
+      "lng": 141.35
+    }
+  },
+  {
+    "id": "s021",
+    "shopId": "shop03",
+    "sweetName": "ティラミス",
+    "shopName": "スイーツ店3",
+    "category": "カフェスイーツ",
+    "price": 588,
+    "description": "人気のスイーツです",
+    "tags": [
+      "テイクアウト可"
+    ],
+    "imageUrl": "/images/sweets/1.jpg",
+    "coordinates": {
+      "lat": 43.080000000000005,
+      "lng": 141.36
+    }
+  },
+  {
+    "id": "s022",
+    "shopId": "shop03",
+    "sweetName": "モンブラン",
+    "shopName": "スイーツ店3",
+    "category": "洋菓子",
+    "price": 326,
+    "description": "人気のスイーツです",
+    "tags": [
+      "人気"
+    ],
+    "imageUrl": "/images/sweets/2.jpg",
+    "coordinates": {
+      "lat": 43.080000000000005,
+      "lng": 141.36
+    }
+  },
+  {
+    "id": "s023",
+    "shopId": "shop03",
+    "sweetName": "シュークリーム",
+    "shopName": "スイーツ店3",
+    "category": "洋菓子",
+    "price": 658,
+    "description": "人気のスイーツです",
+    "tags": [
+      "テイクアウト可"
+    ],
+    "imageUrl": "/images/sweets/3.jpg",
+    "coordinates": {
+      "lat": 43.080000000000005,
+      "lng": 141.36
+    }
+  },
+  {
+    "id": "s024",
+    "shopId": "shop03",
+    "sweetName": "いちごショートケーキ",
+    "shopName": "スイーツ店3",
+    "category": "洋菓子",
+    "price": 446,
+    "description": "人気のスイーツです",
+    "tags": [
+      "テイクアウト可"
+    ],
+    "imageUrl": "/images/sweets/4.jpg",
+    "coordinates": {
+      "lat": 43.080000000000005,
+      "lng": 141.36
+    }
+  },
+  {
+    "id": "s025",
+    "shopId": "shop03",
+    "sweetName": "チーズケーキ",
+    "shopName": "スイーツ店3",
+    "category": "洋菓子",
+    "price": 698,
+    "description": "人気のスイーツです",
+    "tags": [
+      "期間限定"
+    ],
+    "imageUrl": "/images/sweets/5.jpg",
+    "coordinates": {
+      "lat": 43.080000000000005,
+      "lng": 141.36
+    }
+  },
+  {
+    "id": "s026",
+    "shopId": "shop03",
+    "sweetName": "ロールケーキ",
+    "shopName": "スイーツ店3",
+    "category": "洋菓子",
+    "price": 427,
+    "description": "人気のスイーツです",
+    "tags": [
+      "人気"
+    ],
+    "imageUrl": "/images/sweets/6.jpg",
+    "coordinates": {
+      "lat": 43.080000000000005,
+      "lng": 141.36
+    }
+  },
+  {
+    "id": "s027",
+    "shopId": "shop03",
+    "sweetName": "プリン",
+    "shopName": "スイーツ店3",
+    "category": "洋菓子",
+    "price": 699,
+    "description": "人気のスイーツです",
+    "tags": [
+      "SNS映え"
+    ],
+    "imageUrl": "/images/sweets/7.jpg",
+    "coordinates": {
+      "lat": 43.080000000000005,
+      "lng": 141.36
+    }
+  },
+  {
+    "id": "s028",
+    "shopId": "shop03",
+    "sweetName": "シュークリーム",
+    "shopName": "スイーツ店3",
+    "category": "洋菓子",
+    "price": 384,
+    "description": "人気のスイーツです",
+    "tags": [
+      "テイクアウト可"
+    ],
+    "imageUrl": "/images/sweets/8.jpg",
+    "coordinates": {
+      "lat": 43.080000000000005,
+      "lng": 141.36
+    }
+  },
+  {
+    "id": "s029",
+    "shopId": "shop03",
+    "sweetName": "大福",
+    "shopName": "スイーツ店3",
+    "category": "和菓子",
+    "price": 461,
+    "description": "人気のスイーツです",
+    "tags": [
+      "期間限定"
+    ],
+    "imageUrl": "/images/sweets/9.jpg",
+    "coordinates": {
+      "lat": 43.080000000000005,
+      "lng": 141.36
+    }
+  },
+  {
+    "id": "s030",
+    "shopId": "shop03",
+    "sweetName": "シュークリーム",
+    "shopName": "スイーツ店3",
+    "category": "洋菓子",
+    "price": 421,
+    "description": "人気のスイーツです",
+    "tags": [
+      "SNS映え"
+    ],
+    "imageUrl": "/images/sweets/10.jpg",
+    "coordinates": {
+      "lat": 43.080000000000005,
+      "lng": 141.36
+    }
+  },
+  {
+    "id": "s031",
+    "shopId": "shop04",
+    "sweetName": "大福",
+    "shopName": "スイーツ店4",
+    "category": "和菓子",
+    "price": 607,
+    "description": "人気のスイーツです",
+    "tags": [
+      "期間限定"
+    ],
+    "imageUrl": "/images/sweets/1.jpg",
+    "coordinates": {
+      "lat": 43.09,
+      "lng": 141.37
+    }
+  },
+  {
+    "id": "s032",
+    "shopId": "shop04",
+    "sweetName": "ロールケーキ",
+    "shopName": "スイーツ店4",
+    "category": "洋菓子",
+    "price": 344,
+    "description": "人気のスイーツです",
+    "tags": [
+      "期間限定"
+    ],
+    "imageUrl": "/images/sweets/2.jpg",
+    "coordinates": {
+      "lat": 43.09,
+      "lng": 141.37
+    }
+  },
+  {
+    "id": "s033",
+    "shopId": "shop04",
+    "sweetName": "プリン",
+    "shopName": "スイーツ店4",
+    "category": "洋菓子",
+    "price": 717,
+    "description": "人気のスイーツです",
+    "tags": [
+      "テイクアウト可"
+    ],
+    "imageUrl": "/images/sweets/3.jpg",
+    "coordinates": {
+      "lat": 43.09,
+      "lng": 141.37
+    }
+  },
+  {
+    "id": "s034",
+    "shopId": "shop04",
+    "sweetName": "パンケーキ",
+    "shopName": "スイーツ店4",
+    "category": "カフェスイーツ",
+    "price": 675,
+    "description": "人気のスイーツです",
+    "tags": [
+      "SNS映え"
+    ],
+    "imageUrl": "/images/sweets/4.jpg",
+    "coordinates": {
+      "lat": 43.09,
+      "lng": 141.37
+    }
+  },
+  {
+    "id": "s035",
+    "shopId": "shop04",
+    "sweetName": "抹茶アイス",
+    "shopName": "スイーツ店4",
+    "category": "アイス",
+    "price": 444,
+    "description": "人気のスイーツです",
+    "tags": [
+      "SNS映え"
+    ],
+    "imageUrl": "/images/sweets/5.jpg",
+    "coordinates": {
+      "lat": 43.09,
+      "lng": 141.37
+    }
+  },
+  {
+    "id": "s036",
+    "shopId": "shop04",
+    "sweetName": "どら焼き",
+    "shopName": "スイーツ店4",
+    "category": "和菓子",
+    "price": 568,
+    "description": "人気のスイーツです",
+    "tags": [
+      "SNS映え"
+    ],
+    "imageUrl": "/images/sweets/6.jpg",
+    "coordinates": {
+      "lat": 43.09,
+      "lng": 141.37
+    }
+  },
+  {
+    "id": "s037",
+    "shopId": "shop04",
+    "sweetName": "シュークリーム",
+    "shopName": "スイーツ店4",
+    "category": "洋菓子",
+    "price": 626,
+    "description": "人気のスイーツです",
+    "tags": [
+      "期間限定"
+    ],
+    "imageUrl": "/images/sweets/7.jpg",
+    "coordinates": {
+      "lat": 43.09,
+      "lng": 141.37
+    }
+  },
+  {
+    "id": "s038",
+    "shopId": "shop04",
+    "sweetName": "いちごショートケーキ",
+    "shopName": "スイーツ店4",
+    "category": "洋菓子",
+    "price": 730,
+    "description": "人気のスイーツです",
+    "tags": [
+      "SNS映え"
+    ],
+    "imageUrl": "/images/sweets/8.jpg",
+    "coordinates": {
+      "lat": 43.09,
+      "lng": 141.37
+    }
+  },
+  {
+    "id": "s039",
+    "shopId": "shop04",
+    "sweetName": "パンケーキ",
+    "shopName": "スイーツ店4",
+    "category": "カフェスイーツ",
+    "price": 454,
+    "description": "人気のスイーツです",
+    "tags": [
+      "SNS映え"
+    ],
+    "imageUrl": "/images/sweets/9.jpg",
+    "coordinates": {
+      "lat": 43.09,
+      "lng": 141.37
+    }
+  },
+  {
+    "id": "s040",
+    "shopId": "shop04",
+    "sweetName": "バニラアイス",
+    "shopName": "スイーツ店4",
+    "category": "アイス",
+    "price": 602,
+    "description": "人気のスイーツです",
+    "tags": [
+      "SNS映え"
+    ],
+    "imageUrl": "/images/sweets/10.jpg",
+    "coordinates": {
+      "lat": 43.09,
+      "lng": 141.37
+    }
+  },
+  {
+    "id": "s041",
+    "shopId": "shop05",
+    "sweetName": "ティラミス",
+    "shopName": "スイーツ店5",
+    "category": "カフェスイーツ",
+    "price": 557,
+    "description": "人気のスイーツです",
+    "tags": [
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/1.jpg",
     "coordinates": {
@@ -15,13 +699,13 @@
   {
     "id": "s042",
     "shopId": "shop05",
-    "sweetName": "ロールケーキ",
+    "sweetName": "チョコレートケーキ",
     "shopName": "スイーツ店5",
     "category": "洋菓子",
-    "price": 352,
+    "price": 404,
     "description": "人気のスイーツです",
     "tags": [
-      "テイクアウト可"
+      "SNS映え"
     ],
     "imageUrl": "/images/sweets/2.jpg",
     "coordinates": {
@@ -32,10 +716,10 @@
   {
     "id": "s043",
     "shopId": "shop05",
-    "sweetName": "バニラアイス",
+    "sweetName": "シュークリーム",
     "shopName": "スイーツ店5",
-    "category": "アイス",
-    "price": 529,
+    "category": "洋菓子",
+    "price": 761,
     "description": "人気のスイーツです",
     "tags": [
       "SNS映え"
@@ -49,10 +733,10 @@
   {
     "id": "s044",
     "shopId": "shop05",
-    "sweetName": "どら焼き",
+    "sweetName": "モンブラン",
     "shopName": "スイーツ店5",
-    "category": "和菓子",
-    "price": 351,
+    "category": "洋菓子",
+    "price": 721,
     "description": "人気のスイーツです",
     "tags": [
       "テイクアウト可"
@@ -66,13 +750,13 @@
   {
     "id": "s045",
     "shopId": "shop05",
-    "sweetName": "パンケーキ",
+    "sweetName": "モンブラン",
     "shopName": "スイーツ店5",
-    "category": "カフェスイーツ",
-    "price": 733,
+    "category": "洋菓子",
+    "price": 564,
     "description": "人気のスイーツです",
     "tags": [
-      "人気"
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/5.jpg",
     "coordinates": {
@@ -83,13 +767,13 @@
   {
     "id": "s046",
     "shopId": "shop05",
-    "sweetName": "大福",
+    "sweetName": "どら焼き",
     "shopName": "スイーツ店5",
     "category": "和菓子",
-    "price": 465,
+    "price": 656,
     "description": "人気のスイーツです",
     "tags": [
-      "SNS映え"
+      "期間限定"
     ],
     "imageUrl": "/images/sweets/6.jpg",
     "coordinates": {
@@ -100,10 +784,10 @@
   {
     "id": "s047",
     "shopId": "shop05",
-    "sweetName": "どら焼き",
+    "sweetName": "バニラアイス",
     "shopName": "スイーツ店5",
-    "category": "和菓子",
-    "price": 382,
+    "category": "アイス",
+    "price": 713,
     "description": "人気のスイーツです",
     "tags": [
       "期間限定"
@@ -117,13 +801,13 @@
   {
     "id": "s048",
     "shopId": "shop05",
-    "sweetName": "いちごショートケーキ",
+    "sweetName": "プリン",
     "shopName": "スイーツ店5",
     "category": "洋菓子",
-    "price": 316,
+    "price": 623,
     "description": "人気のスイーツです",
     "tags": [
-      "期間限定"
+      "SNS映え"
     ],
     "imageUrl": "/images/sweets/8.jpg",
     "coordinates": {
@@ -134,13 +818,13 @@
   {
     "id": "s049",
     "shopId": "shop05",
-    "sweetName": "ティラミス",
+    "sweetName": "パンケーキ",
     "shopName": "スイーツ店5",
     "category": "カフェスイーツ",
-    "price": 674,
+    "price": 689,
     "description": "人気のスイーツです",
     "tags": [
-      "テイクアウト可"
+      "人気"
     ],
     "imageUrl": "/images/sweets/9.jpg",
     "coordinates": {
@@ -151,13 +835,13 @@
   {
     "id": "s050",
     "shopId": "shop05",
-    "sweetName": "モンブラン",
+    "sweetName": "大福",
     "shopName": "スイーツ店5",
-    "category": "洋菓子",
-    "price": 425,
+    "category": "和菓子",
+    "price": 793,
     "description": "人気のスイーツです",
     "tags": [
-      "人気"
+      "SNS映え"
     ],
     "imageUrl": "/images/sweets/10.jpg",
     "coordinates": {
@@ -168,10 +852,10 @@
   {
     "id": "s051",
     "shopId": "shop06",
-    "sweetName": "バニラアイス",
+    "sweetName": "クッキー",
     "shopName": "スイーツ店6",
-    "category": "アイス",
-    "price": 511,
+    "category": "焼き菓子",
+    "price": 612,
     "description": "人気のスイーツです",
     "tags": [
       "SNS映え"
@@ -185,10 +869,10 @@
   {
     "id": "s052",
     "shopId": "shop06",
-    "sweetName": "モンブラン",
+    "sweetName": "大福",
     "shopName": "スイーツ店6",
-    "category": "洋菓子",
-    "price": 599,
+    "category": "和菓子",
+    "price": 621,
     "description": "人気のスイーツです",
     "tags": [
       "期間限定"
@@ -202,13 +886,13 @@
   {
     "id": "s053",
     "shopId": "shop06",
-    "sweetName": "アップルパイ",
+    "sweetName": "大福",
     "shopName": "スイーツ店6",
-    "category": "焼き菓子",
-    "price": 769,
+    "category": "和菓子",
+    "price": 311,
     "description": "人気のスイーツです",
     "tags": [
-      "期間限定"
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/3.jpg",
     "coordinates": {
@@ -219,10 +903,10 @@
   {
     "id": "s054",
     "shopId": "shop06",
-    "sweetName": "大福",
+    "sweetName": "アップルパイ",
     "shopName": "スイーツ店6",
-    "category": "和菓子",
-    "price": 542,
+    "category": "焼き菓子",
+    "price": 456,
     "description": "人気のスイーツです",
     "tags": [
       "期間限定"
@@ -236,13 +920,13 @@
   {
     "id": "s055",
     "shopId": "shop06",
-    "sweetName": "チーズケーキ",
+    "sweetName": "モンブラン",
     "shopName": "スイーツ店6",
     "category": "洋菓子",
-    "price": 619,
+    "price": 419,
     "description": "人気のスイーツです",
     "tags": [
-      "期間限定"
+      "人気"
     ],
     "imageUrl": "/images/sweets/5.jpg",
     "coordinates": {
@@ -253,13 +937,13 @@
   {
     "id": "s056",
     "shopId": "shop06",
-    "sweetName": "抹茶アイス",
+    "sweetName": "ティラミス",
     "shopName": "スイーツ店6",
-    "category": "アイス",
-    "price": 576,
+    "category": "カフェスイーツ",
+    "price": 512,
     "description": "人気のスイーツです",
     "tags": [
-      "期間限定"
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/6.jpg",
     "coordinates": {
@@ -270,13 +954,13 @@
   {
     "id": "s057",
     "shopId": "shop06",
-    "sweetName": "モンブラン",
+    "sweetName": "チョコレートケーキ",
     "shopName": "スイーツ店6",
     "category": "洋菓子",
-    "price": 419,
+    "price": 671,
     "description": "人気のスイーツです",
     "tags": [
-      "人気"
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/7.jpg",
     "coordinates": {
@@ -287,13 +971,13 @@
   {
     "id": "s058",
     "shopId": "shop06",
-    "sweetName": "モンブラン",
+    "sweetName": "ティラミス",
     "shopName": "スイーツ店6",
-    "category": "洋菓子",
-    "price": 695,
+    "category": "カフェスイーツ",
+    "price": 367,
     "description": "人気のスイーツです",
     "tags": [
-      "SNS映え"
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/8.jpg",
     "coordinates": {
@@ -304,10 +988,10 @@
   {
     "id": "s059",
     "shopId": "shop06",
-    "sweetName": "チョコレートケーキ",
+    "sweetName": "シュークリーム",
     "shopName": "スイーツ店6",
     "category": "洋菓子",
-    "price": 720,
+    "price": 757,
     "description": "人気のスイーツです",
     "tags": [
       "テイクアウト可"
@@ -321,13 +1005,13 @@
   {
     "id": "s060",
     "shopId": "shop06",
-    "sweetName": "ティラミス",
+    "sweetName": "バニラアイス",
     "shopName": "スイーツ店6",
-    "category": "カフェスイーツ",
-    "price": 557,
+    "category": "アイス",
+    "price": 739,
     "description": "人気のスイーツです",
     "tags": [
-      "テイクアウト可"
+      "SNS映え"
     ],
     "imageUrl": "/images/sweets/10.jpg",
     "coordinates": {
@@ -338,13 +1022,13 @@
   {
     "id": "s061",
     "shopId": "shop07",
-    "sweetName": "アップルパイ",
+    "sweetName": "いちごショートケーキ",
     "shopName": "スイーツ店7",
-    "category": "焼き菓子",
-    "price": 650,
+    "category": "洋菓子",
+    "price": 475,
     "description": "人気のスイーツです",
     "tags": [
-      "テイクアウト可"
+      "人気"
     ],
     "imageUrl": "/images/sweets/1.jpg",
     "coordinates": {
@@ -355,13 +1039,13 @@
   {
     "id": "s062",
     "shopId": "shop07",
-    "sweetName": "プリン",
+    "sweetName": "チーズケーキ",
     "shopName": "スイーツ店7",
     "category": "洋菓子",
-    "price": 674,
+    "price": 347,
     "description": "人気のスイーツです",
     "tags": [
-      "SNS映え"
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/2.jpg",
     "coordinates": {
@@ -372,10 +1056,10 @@
   {
     "id": "s063",
     "shopId": "shop07",
-    "sweetName": "いちごショートケーキ",
+    "sweetName": "シュークリーム",
     "shopName": "スイーツ店7",
     "category": "洋菓子",
-    "price": 319,
+    "price": 541,
     "description": "人気のスイーツです",
     "tags": [
       "人気"
@@ -389,10 +1073,10 @@
   {
     "id": "s064",
     "shopId": "shop07",
-    "sweetName": "アップルパイ",
+    "sweetName": "バニラアイス",
     "shopName": "スイーツ店7",
-    "category": "焼き菓子",
-    "price": 607,
+    "category": "アイス",
+    "price": 565,
     "description": "人気のスイーツです",
     "tags": [
       "SNS映え"
@@ -406,13 +1090,13 @@
   {
     "id": "s065",
     "shopId": "shop07",
-    "sweetName": "モンブラン",
+    "sweetName": "大福",
     "shopName": "スイーツ店7",
-    "category": "洋菓子",
-    "price": 363,
+    "category": "和菓子",
+    "price": 631,
     "description": "人気のスイーツです",
     "tags": [
-      "テイクアウト可"
+      "SNS映え"
     ],
     "imageUrl": "/images/sweets/5.jpg",
     "coordinates": {
@@ -423,10 +1107,10 @@
   {
     "id": "s066",
     "shopId": "shop07",
-    "sweetName": "大福",
+    "sweetName": "いちごショートケーキ",
     "shopName": "スイーツ店7",
-    "category": "和菓子",
-    "price": 425,
+    "category": "洋菓子",
+    "price": 715,
     "description": "人気のスイーツです",
     "tags": [
       "SNS映え"
@@ -440,10 +1124,10 @@
   {
     "id": "s067",
     "shopId": "shop07",
-    "sweetName": "大福",
+    "sweetName": "ティラミス",
     "shopName": "スイーツ店7",
-    "category": "和菓子",
-    "price": 644,
+    "category": "カフェスイーツ",
+    "price": 759,
     "description": "人気のスイーツです",
     "tags": [
       "テイクアウト可"
@@ -457,13 +1141,13 @@
   {
     "id": "s068",
     "shopId": "shop07",
-    "sweetName": "チョコレートケーキ",
+    "sweetName": "チーズケーキ",
     "shopName": "スイーツ店7",
     "category": "洋菓子",
-    "price": 327,
+    "price": 673,
     "description": "人気のスイーツです",
     "tags": [
-      "テイクアウト可"
+      "期間限定"
     ],
     "imageUrl": "/images/sweets/8.jpg",
     "coordinates": {
@@ -474,13 +1158,13 @@
   {
     "id": "s069",
     "shopId": "shop07",
-    "sweetName": "大福",
+    "sweetName": "チーズケーキ",
     "shopName": "スイーツ店7",
-    "category": "和菓子",
-    "price": 447,
+    "category": "洋菓子",
+    "price": 686,
     "description": "人気のスイーツです",
     "tags": [
-      "人気"
+      "期間限定"
     ],
     "imageUrl": "/images/sweets/9.jpg",
     "coordinates": {
@@ -491,13 +1175,13 @@
   {
     "id": "s070",
     "shopId": "shop07",
-    "sweetName": "モンブラン",
+    "sweetName": "アップルパイ",
     "shopName": "スイーツ店7",
-    "category": "洋菓子",
-    "price": 658,
+    "category": "焼き菓子",
+    "price": 535,
     "description": "人気のスイーツです",
     "tags": [
-      "テイクアウト可"
+      "SNS映え"
     ],
     "imageUrl": "/images/sweets/10.jpg",
     "coordinates": {
@@ -508,13 +1192,13 @@
   {
     "id": "s071",
     "shopId": "shop08",
-    "sweetName": "ロールケーキ",
+    "sweetName": "クッキー",
     "shopName": "スイーツ店8",
-    "category": "洋菓子",
-    "price": 586,
+    "category": "焼き菓子",
+    "price": 770,
     "description": "人気のスイーツです",
     "tags": [
-      "SNS映え"
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/1.jpg",
     "coordinates": {
@@ -528,10 +1212,10 @@
     "sweetName": "モンブラン",
     "shopName": "スイーツ店8",
     "category": "洋菓子",
-    "price": 617,
+    "price": 772,
     "description": "人気のスイーツです",
     "tags": [
-      "人気"
+      "期間限定"
     ],
     "imageUrl": "/images/sweets/2.jpg",
     "coordinates": {
@@ -542,13 +1226,13 @@
   {
     "id": "s073",
     "shopId": "shop08",
-    "sweetName": "ロールケーキ",
+    "sweetName": "シュークリーム",
     "shopName": "スイーツ店8",
     "category": "洋菓子",
-    "price": 380,
+    "price": 658,
     "description": "人気のスイーツです",
     "tags": [
-      "人気"
+      "期間限定"
     ],
     "imageUrl": "/images/sweets/3.jpg",
     "coordinates": {
@@ -559,13 +1243,13 @@
   {
     "id": "s074",
     "shopId": "shop08",
-    "sweetName": "パンケーキ",
+    "sweetName": "シュークリーム",
     "shopName": "スイーツ店8",
-    "category": "カフェスイーツ",
-    "price": 441,
+    "category": "洋菓子",
+    "price": 548,
     "description": "人気のスイーツです",
     "tags": [
-      "SNS映え"
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/4.jpg",
     "coordinates": {
@@ -576,13 +1260,13 @@
   {
     "id": "s075",
     "shopId": "shop08",
-    "sweetName": "バニラアイス",
+    "sweetName": "シュークリーム",
     "shopName": "スイーツ店8",
-    "category": "アイス",
-    "price": 665,
+    "category": "洋菓子",
+    "price": 461,
     "description": "人気のスイーツです",
     "tags": [
-      "テイクアウト可"
+      "人気"
     ],
     "imageUrl": "/images/sweets/5.jpg",
     "coordinates": {
@@ -593,13 +1277,13 @@
   {
     "id": "s076",
     "shopId": "shop08",
-    "sweetName": "パンケーキ",
+    "sweetName": "クッキー",
     "shopName": "スイーツ店8",
-    "category": "カフェスイーツ",
-    "price": 478,
+    "category": "焼き菓子",
+    "price": 620,
     "description": "人気のスイーツです",
     "tags": [
-      "SNS映え"
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/6.jpg",
     "coordinates": {
@@ -610,10 +1294,10 @@
   {
     "id": "s077",
     "shopId": "shop08",
-    "sweetName": "バニラアイス",
+    "sweetName": "シュークリーム",
     "shopName": "スイーツ店8",
-    "category": "アイス",
-    "price": 706,
+    "category": "洋菓子",
+    "price": 645,
     "description": "人気のスイーツです",
     "tags": [
       "テイクアウト可"
@@ -627,10 +1311,10 @@
   {
     "id": "s078",
     "shopId": "shop08",
-    "sweetName": "モンブラン",
+    "sweetName": "バニラアイス",
     "shopName": "スイーツ店8",
-    "category": "洋菓子",
-    "price": 577,
+    "category": "アイス",
+    "price": 581,
     "description": "人気のスイーツです",
     "tags": [
       "期間限定"
@@ -644,13 +1328,13 @@
   {
     "id": "s079",
     "shopId": "shop08",
-    "sweetName": "いちごショートケーキ",
+    "sweetName": "モンブラン",
     "shopName": "スイーツ店8",
     "category": "洋菓子",
-    "price": 524,
+    "price": 581,
     "description": "人気のスイーツです",
     "tags": [
-      "期間限定"
+      "人気"
     ],
     "imageUrl": "/images/sweets/9.jpg",
     "coordinates": {
@@ -661,13 +1345,13 @@
   {
     "id": "s080",
     "shopId": "shop08",
-    "sweetName": "アップルパイ",
+    "sweetName": "いちごショートケーキ",
     "shopName": "スイーツ店8",
-    "category": "焼き菓子",
-    "price": 351,
+    "category": "洋菓子",
+    "price": 554,
     "description": "人気のスイーツです",
     "tags": [
-      "テイクアウト可"
+      "SNS映え"
     ],
     "imageUrl": "/images/sweets/10.jpg",
     "coordinates": {
@@ -678,13 +1362,13 @@
   {
     "id": "s081",
     "shopId": "shop09",
-    "sweetName": "パンケーキ",
+    "sweetName": "どら焼き",
     "shopName": "スイーツ店9",
-    "category": "カフェスイーツ",
-    "price": 492,
+    "category": "和菓子",
+    "price": 456,
     "description": "人気のスイーツです",
     "tags": [
-      "期間限定"
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/1.jpg",
     "coordinates": {
@@ -695,13 +1379,13 @@
   {
     "id": "s082",
     "shopId": "shop09",
-    "sweetName": "チーズケーキ",
+    "sweetName": "パンケーキ",
     "shopName": "スイーツ店9",
-    "category": "洋菓子",
-    "price": 585,
+    "category": "カフェスイーツ",
+    "price": 609,
     "description": "人気のスイーツです",
     "tags": [
-      "期間限定"
+      "人気"
     ],
     "imageUrl": "/images/sweets/2.jpg",
     "coordinates": {
@@ -712,13 +1396,13 @@
   {
     "id": "s083",
     "shopId": "shop09",
-    "sweetName": "バニラアイス",
+    "sweetName": "パンケーキ",
     "shopName": "スイーツ店9",
-    "category": "アイス",
-    "price": 405,
+    "category": "カフェスイーツ",
+    "price": 526,
     "description": "人気のスイーツです",
     "tags": [
-      "人気"
+      "期間限定"
     ],
     "imageUrl": "/images/sweets/3.jpg",
     "coordinates": {
@@ -729,13 +1413,13 @@
   {
     "id": "s084",
     "shopId": "shop09",
-    "sweetName": "いちごショートケーキ",
+    "sweetName": "チーズケーキ",
     "shopName": "スイーツ店9",
     "category": "洋菓子",
-    "price": 383,
+    "price": 751,
     "description": "人気のスイーツです",
     "tags": [
-      "テイクアウト可"
+      "人気"
     ],
     "imageUrl": "/images/sweets/4.jpg",
     "coordinates": {
@@ -746,13 +1430,13 @@
   {
     "id": "s085",
     "shopId": "shop09",
-    "sweetName": "シュークリーム",
+    "sweetName": "モンブラン",
     "shopName": "スイーツ店9",
     "category": "洋菓子",
-    "price": 318,
+    "price": 569,
     "description": "人気のスイーツです",
     "tags": [
-      "期間限定"
+      "人気"
     ],
     "imageUrl": "/images/sweets/5.jpg",
     "coordinates": {
@@ -763,13 +1447,13 @@
   {
     "id": "s086",
     "shopId": "shop09",
-    "sweetName": "チーズケーキ",
+    "sweetName": "大福",
     "shopName": "スイーツ店9",
-    "category": "洋菓子",
-    "price": 478,
+    "category": "和菓子",
+    "price": 502,
     "description": "人気のスイーツです",
     "tags": [
-      "SNS映え"
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/6.jpg",
     "coordinates": {
@@ -780,13 +1464,13 @@
   {
     "id": "s087",
     "shopId": "shop09",
-    "sweetName": "バニラアイス",
+    "sweetName": "いちごショートケーキ",
     "shopName": "スイーツ店9",
-    "category": "アイス",
-    "price": 748,
+    "category": "洋菓子",
+    "price": 729,
     "description": "人気のスイーツです",
     "tags": [
-      "SNS映え"
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/7.jpg",
     "coordinates": {
@@ -797,13 +1481,13 @@
   {
     "id": "s088",
     "shopId": "shop09",
-    "sweetName": "プリン",
+    "sweetName": "チーズケーキ",
     "shopName": "スイーツ店9",
     "category": "洋菓子",
-    "price": 519,
+    "price": 706,
     "description": "人気のスイーツです",
     "tags": [
-      "SNS映え"
+      "人気"
     ],
     "imageUrl": "/images/sweets/8.jpg",
     "coordinates": {
@@ -814,13 +1498,13 @@
   {
     "id": "s089",
     "shopId": "shop09",
-    "sweetName": "チョコレートケーキ",
+    "sweetName": "ロールケーキ",
     "shopName": "スイーツ店9",
     "category": "洋菓子",
-    "price": 781,
+    "price": 353,
     "description": "人気のスイーツです",
     "tags": [
-      "期間限定"
+      "SNS映え"
     ],
     "imageUrl": "/images/sweets/9.jpg",
     "coordinates": {
@@ -831,13 +1515,13 @@
   {
     "id": "s090",
     "shopId": "shop09",
-    "sweetName": "モンブラン",
+    "sweetName": "クッキー",
     "shopName": "スイーツ店9",
-    "category": "洋菓子",
-    "price": 327,
+    "category": "焼き菓子",
+    "price": 371,
     "description": "人気のスイーツです",
     "tags": [
-      "人気"
+      "SNS映え"
     ],
     "imageUrl": "/images/sweets/10.jpg",
     "coordinates": {
@@ -848,13 +1532,13 @@
   {
     "id": "s091",
     "shopId": "shop10",
-    "sweetName": "チョコレートケーキ",
+    "sweetName": "アップルパイ",
     "shopName": "スイーツ店10",
-    "category": "洋菓子",
-    "price": 598,
+    "category": "焼き菓子",
+    "price": 756,
     "description": "人気のスイーツです",
     "tags": [
-      "SNS映え"
+      "人気"
     ],
     "imageUrl": "/images/sweets/1.jpg",
     "coordinates": {
@@ -865,10 +1549,10 @@
   {
     "id": "s092",
     "shopId": "shop10",
-    "sweetName": "チョコレートケーキ",
+    "sweetName": "シュークリーム",
     "shopName": "スイーツ店10",
     "category": "洋菓子",
-    "price": 674,
+    "price": 729,
     "description": "人気のスイーツです",
     "tags": [
       "SNS映え"
@@ -885,10 +1569,10 @@
     "sweetName": "アップルパイ",
     "shopName": "スイーツ店10",
     "category": "焼き菓子",
-    "price": 357,
+    "price": 376,
     "description": "人気のスイーツです",
     "tags": [
-      "テイクアウト可"
+      "期間限定"
     ],
     "imageUrl": "/images/sweets/3.jpg",
     "coordinates": {
@@ -899,13 +1583,13 @@
   {
     "id": "s094",
     "shopId": "shop10",
-    "sweetName": "モンブラン",
+    "sweetName": "チーズケーキ",
     "shopName": "スイーツ店10",
     "category": "洋菓子",
-    "price": 530,
+    "price": 407,
     "description": "人気のスイーツです",
     "tags": [
-      "期間限定"
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/4.jpg",
     "coordinates": {
@@ -916,10 +1600,10 @@
   {
     "id": "s095",
     "shopId": "shop10",
-    "sweetName": "シュークリーム",
+    "sweetName": "抹茶アイス",
     "shopName": "スイーツ店10",
-    "category": "洋菓子",
-    "price": 335,
+    "category": "アイス",
+    "price": 354,
     "description": "人気のスイーツです",
     "tags": [
       "SNS映え"
@@ -933,13 +1617,13 @@
   {
     "id": "s096",
     "shopId": "shop10",
-    "sweetName": "ティラミス",
+    "sweetName": "いちごショートケーキ",
     "shopName": "スイーツ店10",
-    "category": "カフェスイーツ",
-    "price": 312,
+    "category": "洋菓子",
+    "price": 450,
     "description": "人気のスイーツです",
     "tags": [
-      "人気"
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/6.jpg",
     "coordinates": {
@@ -950,13 +1634,13 @@
   {
     "id": "s097",
     "shopId": "shop10",
-    "sweetName": "ティラミス",
+    "sweetName": "シュークリーム",
     "shopName": "スイーツ店10",
-    "category": "カフェスイーツ",
-    "price": 782,
+    "category": "洋菓子",
+    "price": 563,
     "description": "人気のスイーツです",
     "tags": [
-      "テイクアウト可"
+      "人気"
     ],
     "imageUrl": "/images/sweets/7.jpg",
     "coordinates": {
@@ -967,13 +1651,13 @@
   {
     "id": "s098",
     "shopId": "shop10",
-    "sweetName": "アップルパイ",
+    "sweetName": "大福",
     "shopName": "スイーツ店10",
-    "category": "焼き菓子",
-    "price": 331,
+    "category": "和菓子",
+    "price": 668,
     "description": "人気のスイーツです",
     "tags": [
-      "テイクアウト可"
+      "SNS映え"
     ],
     "imageUrl": "/images/sweets/8.jpg",
     "coordinates": {
@@ -984,10 +1668,10 @@
   {
     "id": "s099",
     "shopId": "shop10",
-    "sweetName": "大福",
+    "sweetName": "クッキー",
     "shopName": "スイーツ店10",
-    "category": "和菓子",
-    "price": 766,
+    "category": "焼き菓子",
+    "price": 372,
     "description": "人気のスイーツです",
     "tags": [
       "SNS映え"
@@ -1001,13 +1685,13 @@
   {
     "id": "s100",
     "shopId": "shop10",
-    "sweetName": "抹茶アイス",
+    "sweetName": "大福",
     "shopName": "スイーツ店10",
-    "category": "アイス",
-    "price": 576,
+    "category": "和菓子",
+    "price": 452,
     "description": "人気のスイーツです",
     "tags": [
-      "期間限定"
+      "テイクアウト可"
     ],
     "imageUrl": "/images/sweets/10.jpg",
     "coordinates": {
