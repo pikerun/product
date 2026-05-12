@@ -15,7 +15,6 @@ app.use('/api/home',homeRoutes);
 app.use('/api/stores', detailRoutes);
 app.use('/api/sweets', sweetsRoutes);
 
-
 // サーバーを起動して待機する
 app.listen(port, () => {
     console.log(`サーバーが起動しました: http://localhost:${port}`);
