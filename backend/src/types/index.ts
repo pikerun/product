@@ -14,4 +14,7 @@ export interface Store {
   eatIn: boolean;
   takeOut: boolean;
   sweets: Sweet[]; // 
+
+  description: string;
+  shopName: string;
 }
