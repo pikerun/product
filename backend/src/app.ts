@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import homeRoutes from './routes/home/home';
 import detailRoutes from './routes/stores/detail';
 import sweetsRoutes from './routes/sweets/sweets';
-import searchRoutes from './routes/search/index';
+import searchRoutes from './routes/search/search';
 
 const app = express();
 const port = 3000;
