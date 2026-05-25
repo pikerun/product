@@ -31,7 +31,8 @@ export const searchSweets = (req: Request, res: Response) => {
         console.error('Search logic failed:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
-=======
+};
+
 import { Store } from '../../types/index';
 
 export const getFilteredStore = (storeData: Store[], keyword: string): Store[] => {
@@ -43,7 +44,7 @@ export const getFilteredStore = (storeData: Store[], keyword: string): Store[] =
         // shopName や description が確実に文字列として存在するか確認しながら includes を実行
         const isNameMatch = store.shopName?.toLowerCase().includes(keyword.toLowerCase()) ?? false;
         const isDescriptionMatch = store.description?.includes(keyword) ?? false;
-
+    
         // 3. いずれかにキーワードが含まれていればその Store を配列に残す
         return isNameMatch || isDescriptionMatch;
     });
