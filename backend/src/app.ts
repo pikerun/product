@@ -1,10 +1,15 @@
 import express, { Request, Response } from 'express';
+import cors from 'cors';
 import homeRoutes from './routes/home/home';
 import detailRoutes from './routes/stores/detail';
 import sweetsRoutes from './routes/sweets/sweets';
 import searchRoutes from './routes/search/index';
 
 const app = express();
+app.use(cors({
+    origin: 'http://localhost:5173', // フロントエンドのURLを指定
+    credentials: true, // クッキーを許可する場合はtrueに設定
+}));
 const port = 3000;
 
 // トップページ (http://localhost:3000) にアクセスしたときの処理
