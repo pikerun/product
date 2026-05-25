@@ -1,6 +1,5 @@
-import type { ReactNode } from "react";
+import { useCallback, useState, type ReactNode } from "react";
 import {
-  FiCamera,
   FiChevronLeft,
   FiChevronRight,
   FiClock,
@@ -53,6 +52,144 @@ const menuItems = [
   { name: "函館プリン", price: "¥350" },
 ];
 
+const unsplash = (id: string) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=800&q=80`;
+
+/** 店舗写真（API連携時はここを差し替え） */
+const STORE_PHOTOS = [
+  {
+    id: "exterior",
+    src: unsplash("photo-1554118811-1e0d58224f24"),
+    alt: "お店の外観",
+  },
+  {
+    id: "interior",
+    src: unsplash("photo-1556910103-1c02745aae4d"),
+    alt: "店内",
+  },
+  {
+    id: "sweets",
+    src: unsplash("photo-1565958011703-44f9829ba187"),
+    alt: "スイーツ",
+  },
+];
+
+type StorePhoto = (typeof STORE_PHOTOS)[number];
+
+const HERO_HEIGHT = 176;
+/** 店舗詳細欄（content）の上余白と揃える */
+const SECTION_GAP = 8;
+
+function HeroCarousel({ photos }: { photos: StorePhoto[] }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const count = photos.length;
+
+  const goTo = useCallback(
+    (index: number) => {
+      if (count === 0) return;
+      setActiveIndex(((index % count) + count) % count);
+    },
+    [count]
+  );
+
+  const goPrev = () => goTo(activeIndex - 1);
+  const goNext = () => goTo(activeIndex + 1);
+
+  if (count === 0) {
+    return (
+      <section style={styles.hero}>
+        <div style={styles.heroViewport}>
+          <div style={styles.heroPlaceholder}>写真がありません</div>
+        </div>
+      </section>
+    );
+  }
+
+  const slideOffsetPercent = (activeIndex * 100) / count;
+
+  return (
+    <section
+      style={styles.hero}
+      aria-roledescription="carousel"
+      aria-label="店舗写真"
+    >
+      <button
+        type="button"
+        style={styles.heroArrow}
+        aria-label="前の写真"
+        onClick={goPrev}
+      >
+        <FiChevronLeft size={18} />
+      </button>
+
+      <div style={styles.heroViewport}>
+        <div
+          style={{
+            ...styles.heroTrack,
+            width: `${count * 100}%`,
+            transform: `translateX(-${slideOffsetPercent}%)`,
+          }}
+        >
+          {photos.map((photo) => (
+            <HeroSlide key={photo.id} photo={photo} count={count} />
+          ))}
+        </div>
+
+        <div style={styles.heroDots}>
+          {photos.map((photo, index) => (
+            <button
+              key={photo.id}
+              type="button"
+              aria-label={`${index + 1}枚目の写真`}
+              aria-current={index === activeIndex ? "true" : undefined}
+              style={{
+                ...styles.dot,
+                ...(index === activeIndex ? styles.dotActive : {}),
+              }}
+              onClick={() => goTo(index)}
+            />
+          ))}
+        </div>
+      </div>
+
+      <button
+        type="button"
+        style={styles.heroArrow}
+        aria-label="次の写真"
+        onClick={goNext}
+      >
+        <FiChevronRight size={18} />
+      </button>
+    </section>
+  );
+}
+
+function HeroSlide({ photo, count }: { photo: StorePhoto; count: number }) {
+  const [failed, setFailed] = useState(false);
+
+  return (
+    <div
+      style={{
+        ...styles.heroSlide,
+        width: `${100 / count}%`,
+      }}
+    >
+      {failed ? (
+        <div style={styles.heroPlaceholder}>{photo.alt}</div>
+      ) : (
+        <img
+          src={photo.src}
+          alt={photo.alt}
+          style={styles.heroImage}
+          loading="lazy"
+          decoding="async"
+          onError={() => setFailed(true)}
+        />
+      )}
+    </div>
+  );
+}
+
 const Detail = () => {
   return (
     <div style={styles.page}>
@@ -65,23 +202,7 @@ const Detail = () => {
           <div style={styles.headerSpacer} />
         </header>
 
-        <section style={styles.hero}>
-          <button type="button" style={styles.heroArrow} aria-label="previous image">
-            <FiChevronLeft size={18} />
-          </button>
-          <div style={styles.heroCenter}>
-            <FiCamera size={38} color="#bdbdbd" />
-            <p style={styles.heroText}>お店の外観・内装、スイーツ写真</p>
-            <div style={styles.dotRow}>
-              <span style={{ ...styles.dot, ...styles.dotActive }} />
-              <span style={styles.dot} />
-              <span style={styles.dot} />
-            </div>
-          </div>
-          <button type="button" style={styles.heroArrow} aria-label="next image">
-            <FiChevronRight size={18} />
-          </button>
-        </section>
+        <HeroCarousel photos={STORE_PHOTOS} />
 
         <main style={styles.content}>
           <section style={styles.card}>
@@ -185,12 +306,54 @@ const styles = {
   },
   headerSpacer: { width: 30 },
   hero: {
-    height: 176,
-    backgroundColor: "#e8e8e8",
+    height: HERO_HEIGHT,
+    marginTop: SECTION_GAP,
+    backgroundColor: "#f2eee6",
     display: "flex",
-    justifyContent: "space-between",
     alignItems: "center",
+    gap: 8,
     padding: "0 10px",
+    position: "relative" as const,
+    boxSizing: "border-box" as const,
+  },
+  heroViewport: {
+    flex: 1,
+    height: "100%",
+    overflow: "hidden",
+    position: "relative" as const,
+    backgroundColor: "#f2eee6",
+  },
+  heroTrack: {
+    display: "flex",
+    height: "100%",
+    transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+    willChange: "transform",
+  },
+  heroSlide: {
+    flexShrink: 0,
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#f2eee6",
+  },
+  heroImage: {
+    maxWidth: "100%",
+    maxHeight: "100%",
+    width: "auto",
+    height: "auto",
+    objectFit: "contain" as const,
+    display: "block",
+  },
+  heroPlaceholder: {
+    width: "100%",
+    height: "100%",
+    display: "grid",
+    placeItems: "center",
+    backgroundColor: "#f2eee6",
+    color: "#a89585",
+    fontSize: 13,
+    fontFamily: FONT,
   },
   heroArrow: {
     width: 30,
@@ -202,37 +365,38 @@ const styles = {
     display: "grid",
     placeItems: "center",
     cursor: "pointer",
+    flexShrink: 0,
+    zIndex: 2,
+    boxShadow: "0 1px 4px rgba(0, 0, 0, 0.12)",
   },
-  heroCenter: {
-    textAlign: "center" as const,
-    color: "#bcbcbc",
-  },
-  heroText: {
-    margin: "8px 0 10px",
-    fontSize: 13,
-    fontWeight: 400,
-    fontFamily: FONT,
-    color: "#b8b8b8",
-  },
-  dotRow: {
+  heroDots: {
+    position: "absolute" as const,
+    left: 0,
+    right: 0,
+    bottom: 10,
     display: "flex",
     justifyContent: "center",
     gap: 6,
+    zIndex: 2,
   },
   dot: {
     width: 7,
     height: 7,
     borderRadius: "50%",
-    backgroundColor: "#cfcfcf",
+    backgroundColor: "rgba(255, 255, 255, 0.65)",
+    border: "none",
+    padding: 0,
+    cursor: "pointer",
   },
   dotActive: {
     backgroundColor: "#c7a58b",
+    transform: "scale(1.15)",
   },
   content: {
     display: "flex",
     flexDirection: "column" as const,
-    gap: 8,
-    padding: "8px 12px 12px",
+    gap: SECTION_GAP,
+    padding: `${SECTION_GAP}px 12px 12px`,
   },
   card: {
     backgroundColor: "#fff",
