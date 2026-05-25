@@ -6,7 +6,6 @@ import {
   FiClock,
   FiHome,
   FiInfo,
-  FiMap,
   FiMapPin,
   FiSearch,
   FiUser,
@@ -95,14 +94,6 @@ const Detail = () => {
                 </div>
               </div>
             ))}
-          </section>
-
-          <section style={styles.card}>
-            <h2 style={styles.sectionTitle}>マップ</h2>
-            <div style={styles.mapArea}>
-              <FiMap size={28} color="#bcbcbc" />
-              <p style={styles.mapText}>地図エリア（函館市本町1-2-3）</p>
-            </div>
           </section>
 
           <section style={styles.card}>
@@ -240,8 +231,8 @@ const styles = {
   content: {
     display: "flex",
     flexDirection: "column" as const,
-    gap: 12,
-    padding: 12,
+    gap: 8,
+    padding: "8px 12px 12px",
   },
   card: {
     backgroundColor: "#fff",
@@ -286,21 +277,6 @@ const styles = {
     borderLeft: "4px solid #d1b298",
     paddingLeft: 8,
     fontFamily: FONT,
-  },
-  mapArea: {
-    height: 132,
-    borderRadius: 10,
-    backgroundColor: "#efefef",
-    display: "grid",
-    placeItems: "center",
-    textAlign: "center" as const,
-    color: "#b8b8b8",
-  },
-  mapText: {
-    margin: "8px 0 0",
-    fontSize: 14,
-    fontFamily: FONT,
-    fontWeight: 400,
   },
   menuGrid: {
     display: "grid",
