@@ -16,6 +16,8 @@ export interface Sweet {
   coordinates: Coordinates;
 }
 
-export interface Store {
-  
+export interface Store { //とりあえず3つのプロパティを追加したが、必要に応じてさらにプロパティを追加していく予定
+  shopId: string;
+  shopName: string;
+  description: string; 
 }
