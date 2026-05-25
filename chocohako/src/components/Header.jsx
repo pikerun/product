@@ -1,6 +1,6 @@
 import { styles } from "../styles/styles";
 
-export default function Header({ openSidebar }) {
+export default function Header({ openSidebar,title, }) {
   return (
     <header style={styles.header}>
       <div
@@ -11,7 +11,7 @@ export default function Header({ openSidebar }) {
       </div>
 
       <h1 style={styles.headerTitle}>
-        検索結果
+        {title}
       </h1>
     </header>
   );

@@ -1,5 +1,5 @@
-import SearchPage from "./pages/SearchPage";
+import HomePage from "./pages/HomePage";
 
 export default function App() {
-  return <SearchPage />;
+  return <HomePage />;
 }
