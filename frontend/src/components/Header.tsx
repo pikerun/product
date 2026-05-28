@@ -1,14 +1,22 @@
 import { styles } from "../styles/styles";
 
-export default function Header({ openSidebar,title, }) {
+type Props = {
+  openSidebar: () => void;
+  title: string;
+};
+
+export default function Header({
+  openSidebar,
+  title,
+}: Props) {
   return (
     <header style={styles.header}>
-      <div
+      <button
         style={styles.menuBtn}
         onClick={openSidebar}
       >
         ☰
-      </div>
+      </button>
 
       <h1 style={styles.headerTitle}>
         {title}

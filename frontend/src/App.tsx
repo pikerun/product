@@ -2,6 +2,7 @@ import { NavLink, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Search from "./Search";
 import "./App.css";
+import SearchResultPage from "./pages/SearchResultPage";
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
           element={<section className="placeholder-page">マイページ</section>}
         />
         <Route path="*" element={<Navigate to="/search" replace />} />
+      <Route
+  path="/search-result"
+  element={<SearchResultPage />}
+/>
       </Routes>
       </section>
       <nav className="bottom-nav" aria-label="画面切り替え">

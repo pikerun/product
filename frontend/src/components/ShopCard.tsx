@@ -1,6 +1,22 @@
 import { styles } from "../styles/styles";
 
-export default function ShopCard({ shop }) {
+type Shop = {
+  name: string;
+  address: string;
+  time: string;
+  category: string;
+  price: string;
+  holiday: string;
+  image: string;
+};
+
+type Props = {
+  shop: Shop;
+};
+
+export default function ShopCard({
+  shop,
+}: Props) {
   return (
     <div style={styles.shopCard}>
       {/* 左 */}

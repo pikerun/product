@@ -1,9 +1,14 @@
 import { styles } from "../styles/styles";
 
+type Props = {
+  sidebarOpen: boolean;
+  closeSidebar: () => void;
+};
+
 export default function Sidebar({
   sidebarOpen,
   closeSidebar,
-}) {
+}: Props) {
   return (
     <>
       {/* サイドバー */}

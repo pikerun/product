@@ -4,9 +4,9 @@ export const styles = {
     background: "#F6F2E8",
     height: "100vh",
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "column" as const,
     overflow: "hidden",
-    position: "relative",
+    position: "relative" as const,
   },
 
   header: {
@@ -16,16 +16,21 @@ export const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    position: "relative",
+    position: "relative" as const,
     flexShrink: 0,
   },
 
   menuBtn: {
-    position: "absolute",
-    left: "16px",
-    fontSize: "28px",
-    cursor: "pointer",
-  },
+  position: "absolute" as const,
+  left: "16px",
+  top: "50%",
+  transform: "translateY(-50%)",
+  fontSize: "28px",
+  cursor: "pointer",
+  background: "none",
+  border: "none",
+  color: "white",
+},
 
   headerTitle: {
     fontSize: "20px",
@@ -33,7 +38,7 @@ export const styles = {
   },
 
   sidebar: {
-    position: "fixed",
+    position: "fixed" as const,
     top: 0,
     width: "250px",
     height: "100%",
@@ -55,7 +60,7 @@ export const styles = {
   },
 
   sidebarList: {
-    listStyle: "none",
+    listStyle: "none" as const,
     padding: 0,
     margin: 0,
   },
@@ -68,7 +73,7 @@ export const styles = {
   },
 
   overlay: {
-    position: "fixed",
+    position: "fixed" as const,
     inset: 0,
     background: "rgba(0,0,0,0.4)",
     zIndex: 999,
@@ -76,7 +81,7 @@ export const styles = {
 
   main: {
     flex: 1,
-    overflowY: "auto",
+    overflowY: "auto" as const,
     padding: "16px",
   },
 
@@ -124,7 +129,7 @@ export const styles = {
 
   shopName: {
     fontSize: "20px",
-    fontWeight: "bold",
+    fontWeight: "bold" as const,
     color: "#6A4C3A",
     marginBottom: "10px",
   },
@@ -147,7 +152,7 @@ export const styles = {
   image: {
     width: "100%",
     height: "100%",
-    objectFit: "cover",
+    objectFit: "cover" as const,
   },
 
   footer: {

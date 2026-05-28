@@ -1,17 +1,27 @@
 import { useState } from "react";
 
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import ShopCard from "../components/ShopCard";
-import Footer from "../components/Footer";
+import Header from "../components/Header.tsx";
+import Sidebar from "../components/Sidebar.tsx";
+import ShopCard from "../components/ShopCard.tsx";
+import Footer from "../components/Footer.tsx";
 
 import { styles } from "../styles/styles";
+
+type Shop = {
+  name: string;
+  address: string;
+  time: string;
+  category: string;
+  price: string;
+  holiday: string;
+  image: string;
+};
 
 export default function SearchPage() {
   const [sidebarOpen, setSidebarOpen] =
     useState(false);
 
-  const shops = [
+  const shops: Shop[] = [
     {
       name: "Cafe Bloom",
       address: "北海道函館市○○町1-2-3",
@@ -53,6 +63,7 @@ export default function SearchPage() {
       />
 
       <Header
+        title="検索結果"
         openSidebar={() =>
           setSidebarOpen(true)
         }
