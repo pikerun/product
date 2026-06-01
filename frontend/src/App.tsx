@@ -3,6 +3,7 @@ import Detail from "./Detail";
 import Home from "./Home";
 import Search from "./Search";
 import "./App.css";
+import SearchResultPage from "./pages/SearchResultPage";
 
 function AppShell() {
   return (
@@ -10,25 +11,35 @@ function AppShell() {
       <header className="screen-header">
         <span className="header-title">ヘッダー</span>
       </header>
+
       <section className="screen-content">
         <Outlet />
       </section>
+
       <nav className="bottom-nav" aria-label="画面切り替え">
         <NavLink
           to="/home"
-          className={({ isActive }) => `bottom-link ${isActive ? "is-active" : ""}`}
+          className={({ isActive }) =>
+            `bottom-link ${isActive ? "is-active" : ""}`
+          }
         >
           ホーム
         </NavLink>
+
         <NavLink
           to="/search"
-          className={({ isActive }) => `bottom-link ${isActive ? "is-active" : ""}`}
+          className={({ isActive }) =>
+            `bottom-link ${isActive ? "is-active" : ""}`
+          }
         >
           検索
         </NavLink>
+
         <NavLink
           to="/mypage"
-          className={({ isActive }) => `bottom-link ${isActive ? "is-active" : ""}`}
+          className={({ isActive }) =>
+            `bottom-link ${isActive ? "is-active" : ""}`
+          }
         >
           マイページ
         </NavLink>
@@ -40,16 +51,38 @@ function AppShell() {
 function App() {
   return (
     <Routes>
+      {/* 店舗詳細 */}
       <Route path="/stores/:storeId" element={<Detail />} />
+
       <Route element={<AppShell />}>
-        <Route path="/" element={<Navigate to="/search" replace />} />
+        <Route
+          path="/"
+          element={<Navigate to="/search" replace />}
+        />
+
         <Route path="/home" element={<Home />} />
+
         <Route path="/search" element={<Search />} />
+
+        {/* 検索結果画面 */}
+        <Route
+          path="/search-result"
+          element={<SearchResultPage />}
+        />
+
         <Route
           path="/mypage"
-          element={<section className="placeholder-page">マイページ</section>}
+          element={
+            <section className="placeholder-page">
+              マイページ
+            </section>
+          }
         />
-        <Route path="*" element={<Navigate to="/search" replace />} />
+
+        <Route
+          path="*"
+          element={<Navigate to="/search" replace />}
+        />
       </Route>
     </Routes>
   );
