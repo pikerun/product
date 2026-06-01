@@ -133,7 +133,7 @@ const Search = () => {
         {randomSweetImages.map((image, index) => (
           <Link
             key={index}
-            to="/store/1"
+            to="/stores/1"
           >
             <StaticPhoto src={image} />
           </Link>
@@ -145,7 +145,7 @@ const Search = () => {
         {filteredShops.map((item) => (
           <Link
             key={item.storeId}
-            to={`/store/${item.storeId}`}
+            to={`/stores/${item.storeId}`}
           >
             <StaticPhoto src={item.image} />
           </Link>
