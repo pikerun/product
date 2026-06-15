@@ -66,6 +66,10 @@ body {
   letter-spacing: 0.02em;
 }
 
+.header-title--empty {
+  flex: 1;
+}
+
 .header-spacer {
   width: 30px;
 }
