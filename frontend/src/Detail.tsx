@@ -1,4 +1,5 @@
 import { useCallback, useState, type ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FiChevronLeft,
   FiChevronRight,
@@ -191,11 +192,18 @@ function HeroSlide({ photo, count }: { photo: StorePhoto; count: number }) {
 }
 
 const Detail = () => {
+  const navigate = useNavigate();
+
   return (
     <div style={styles.page}>
       <div style={styles.shell}>
         <header style={styles.header}>
-          <button type="button" style={styles.headerButton} aria-label="close">
+         <button
+            type="button"
+            style={styles.headerButton}
+            aria-label="close"
+            onClick={() => navigate(-1)}
+          >
             <FiX size={22} />
           </button>
           <h1 style={styles.headerTitle}>Cafe Bloom</h1>

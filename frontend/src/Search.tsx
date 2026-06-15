@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMemo, useState } from "react";
 
 type ShopItem = {
@@ -7,9 +7,6 @@ type ShopItem = {
   image: string;
 };
 
-/**
- * public/images/sweets に配置した画像
- */
 const sweetImages = [
   "http://localhost:3000/images/sweets/いちご大福.jpg",
   "http://localhost:3000/images/sweets/どら焼き.jpg",
@@ -31,10 +28,6 @@ const sweetImages = [
   "http://localhost:3000/images/sweets/抹茶アイス.jpg",
 ];
 
-/**
- * 店舗画像
- * （下段のみ）
- */
 const SHOP_ITEMS: ShopItem[] = [
   {
     storeId: "1",
@@ -53,7 +46,6 @@ const SHOP_ITEMS: ShopItem[] = [
   },
 ];
 
-/** ランダム画像取得 */
 const getRandomImages = (
   images: string[],
   count: number
@@ -91,12 +83,10 @@ function StaticPhoto({ src }: { src: string }) {
 
 const Search = () => {
   const [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
   const keyword = query.trim().toLowerCase();
 
-  /**
-   * 上段スイーツ画像だけランダム表示
-   */
   const randomSweetImages = useMemo(() => {
     return getRandomImages(sweetImages, 3);
   }, []);
@@ -109,6 +99,14 @@ const Search = () => {
     );
   }, [keyword]);
 
+  const handleSearch = () => {
+    navigate(
+      `/search-result?keyword=${encodeURIComponent(
+        query
+      )}`
+    );
+  };
+
   return (
     <section className="search-layout">
       <div className="search-bar">
@@ -117,15 +115,23 @@ const Search = () => {
           className="search-input"
           placeholder="スイーツ名・お店名で検索"
           value={query}
-          onChange={(event) => setQuery(event.target.value)}
+          onChange={(event) =>
+            setQuery(event.target.value)
+          }
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              handleSearch();
+            }
+          }}
         />
 
-        <span
+        <button
+          type="button"
           className="search-icon"
-          aria-hidden="true"
+          onClick={handleSearch}
         >
           🔍
-        </span>
+        </button>
       </div>
 
       {/* 上段：スイーツ画像 */}
