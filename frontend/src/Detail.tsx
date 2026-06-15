@@ -1,13 +1,11 @@
-import { useCallback, useState, type ReactNode } from "react";
+import { useCallback, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FiChevronLeft,
   FiChevronRight,
   FiClock,
-  FiHome,
   FiInfo,
   FiMapPin,
-  FiSearch,
-  FiUser,
   FiX,
 } from "react-icons/fi";
 import { LuCake } from "react-icons/lu";
@@ -191,123 +189,59 @@ function HeroSlide({ photo, count }: { photo: StorePhoto; count: number }) {
 }
 
 const Detail = () => {
+  const navigate = useNavigate();
+
   return (
-    <div style={styles.page}>
-      <div style={styles.shell}>
-        <header style={styles.header}>
-          <button type="button" style={styles.headerButton} aria-label="close">
-            <FiX size={22} />
-          </button>
-          <h1 style={styles.headerTitle}>Cafe Bloom</h1>
-          <div style={styles.headerSpacer} />
-        </header>
+    <div className="detail-page">
+      <header className="detail-store-header">
+        <button
+          type="button"
+          className="detail-store-header-button"
+          aria-label="閉じる"
+          onClick={() => navigate(-1)}
+        >
+          <FiX size={22} />
+        </button>
+        <h1 className="detail-store-header-title">Cafe Bloom</h1>
+        <div className="detail-store-header-spacer" />
+      </header>
 
-        <HeroCarousel photos={STORE_PHOTOS} />
+      <HeroCarousel photos={STORE_PHOTOS} />
 
-        <main style={styles.content}>
-          <section style={styles.card}>
-            {shopInfo.map((item) => (
-              <div key={item.label} style={styles.infoRow}>
-                <div style={styles.infoIcon}>{item.icon}</div>
-                <div style={styles.infoBody}>
-                  <div style={styles.infoLabel}>{item.label}</div>
-                  <div style={styles.infoValue}>{item.value}</div>
-                </div>
+      <main style={styles.content}>
+        <section style={styles.card}>
+          {shopInfo.map((item) => (
+            <div key={item.label} style={styles.infoRow}>
+              <div style={styles.infoIcon}>{item.icon}</div>
+              <div style={styles.infoBody}>
+                <div style={styles.infoLabel}>{item.label}</div>
+                <div style={styles.infoValue}>{item.value}</div>
               </div>
-            ))}
-          </section>
-
-          <section style={styles.card}>
-            <h2 style={styles.sectionTitle}>メニュー</h2>
-            <div style={styles.menuGrid}>
-              {menuItems.map((item) => (
-                <article key={item.name} style={styles.menuItem}>
-                  <div style={styles.menuImage}>画像</div>
-                  <h3 style={styles.menuName}>{item.name}</h3>
-                  <p style={styles.menuPrice}>{item.price}</p>
-                </article>
-              ))}
             </div>
-          </section>
-        </main>
+          ))}
+        </section>
 
-        <footer style={styles.footer}>
-          <NavItem icon={<FiHome size={18} />} label="ホーム" />
-          <NavItem icon={<FiSearch size={18} />} label="検索" isActive />
-          <NavItem icon={<FiUser size={18} />} label="マイページ" />
-        </footer>
-      </div>
+        <section style={styles.card}>
+          <h2 style={styles.sectionTitle}>メニュー</h2>
+          <div style={styles.menuGrid}>
+            {menuItems.map((item) => (
+              <article key={item.name} style={styles.menuItem}>
+                <div style={styles.menuImage}>画像</div>
+                <h3 style={styles.menuName}>{item.name}</h3>
+                <p style={styles.menuPrice}>{item.price}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      </main>
     </div>
   );
 };
 
-type NavItemProps = {
-  icon: ReactNode;
-  label: string;
-  isActive?: boolean;
-};
-
-function NavItem({ icon, label, isActive = false }: NavItemProps) {
-  return (
-    <button
-      type="button"
-      style={{ ...styles.navItem, ...(isActive ? styles.navItemActive : {}) }}
-    >
-      <span style={styles.navIcon}>{icon}</span>
-      <span style={styles.navLabel}>{label}</span>
-    </button>
-  );
-}
-
 const styles = {
-  page: {
-    minHeight: "100vh",
-    width: "100%",
-    backgroundColor: "#f2eee6",
-    fontFamily: FONT,
-    color: "#3d2d25",
-    WebkitFontSmoothing: "antialiased",
-    textAlign: "start" as const,
-  },
-  shell: {
-    width: "100%",
-    minHeight: "100vh",
-    backgroundColor: "#f2eee6",
-    display: "flex",
-    flexDirection: "column" as const,
-    fontFamily: FONT,
-  },
-  header: {
-    height: 50,
-    backgroundColor: "#c5a58b",
-    color: "#fff",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "0 12px",
-  },
-  headerButton: {
-    border: "none",
-    background: "transparent",
-    color: "#fff",
-    width: 30,
-    height: 30,
-    cursor: "pointer",
-    display: "grid",
-    placeItems: "center",
-  },
-  headerTitle: {
-    fontSize: 18,
-    fontWeight: 700,
-    margin: 0,
-    lineHeight: 1.2,
-    fontFamily: FONT,
-    letterSpacing: 0.02,
-  },
-  headerSpacer: { width: 30 },
   hero: {
     height: HERO_HEIGHT,
-    marginTop: SECTION_GAP,
+    marginTop: 0,
     backgroundColor: "#f2eee6",
     display: "flex",
     alignItems: "center",
@@ -396,7 +330,7 @@ const styles = {
     display: "flex",
     flexDirection: "column" as const,
     gap: SECTION_GAP,
-    padding: `${SECTION_GAP}px 12px 12px`,
+    padding: `0 0 12px`,
   },
   card: {
     backgroundColor: "#fff",
@@ -471,32 +405,6 @@ const styles = {
     fontWeight: 500,
     fontFamily: FONT,
     color: "#c49f83",
-  },
-  footer: {
-    marginTop: "auto",
-    height: 56,
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-    backgroundColor: "#7b5b47",
-  },
-  navItem: {
-    border: "none",
-    background: "transparent",
-    color: "#dbc9b8",
-    display: "grid",
-    placeItems: "center",
-    cursor: "pointer",
-  },
-  navItemActive: {
-    backgroundColor: "#6d4e3d",
-    color: "#fff",
-  },
-  navIcon: { lineHeight: 1 },
-  navLabel: {
-    fontSize: 11,
-    fontWeight: 500,
-    fontFamily: FONT,
-    marginTop: 2,
   },
 };
 

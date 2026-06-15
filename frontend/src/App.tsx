@@ -1,4 +1,5 @@
 import { NavLink, Navigate, Outlet, Route, Routes } from "react-router-dom";
+import { FiHome, FiMenu, FiSearch, FiUser } from "react-icons/fi";
 import Detail from "./Detail";
 import Home from "./Home";
 import Search from "./Search";
@@ -9,7 +10,11 @@ function AppShell() {
   return (
     <main className="screen-shell">
       <header className="screen-header">
-        <span className="header-title">ヘッダー</span>
+        <button type="button" className="header-menu-button" aria-label="メニュー">
+          <FiMenu size={22} />
+        </button>
+        <h1 className="header-title">スイーツマップ</h1>
+        <div className="header-spacer" />
       </header>
 
       <section className="screen-content">
@@ -23,7 +28,10 @@ function AppShell() {
             `bottom-link ${isActive ? "is-active" : ""}`
           }
         >
-          ホーム
+          <span className="bottom-link-icon">
+            <FiHome size={18} />
+          </span>
+          <span className="bottom-link-label">ホーム</span>
         </NavLink>
 
         <NavLink
@@ -32,7 +40,10 @@ function AppShell() {
             `bottom-link ${isActive ? "is-active" : ""}`
           }
         >
-          検索
+          <span className="bottom-link-icon">
+            <FiSearch size={18} />
+          </span>
+          <span className="bottom-link-label">検索</span>
         </NavLink>
 
         <NavLink
@@ -41,7 +52,10 @@ function AppShell() {
             `bottom-link ${isActive ? "is-active" : ""}`
           }
         >
-          マイページ
+          <span className="bottom-link-icon">
+            <FiUser size={18} />
+          </span>
+          <span className="bottom-link-label">マイページ</span>
         </NavLink>
       </nav>
     </main>
@@ -51,11 +65,6 @@ function AppShell() {
 function App() {
   return (
     <Routes>
-      <Route
-        path="/stores/:storeId"
-        element={<Detail />}
-      />
-
       <Route element={<AppShell />}>
         <Route
           path="/"
@@ -75,6 +84,11 @@ function App() {
         <Route
           path="/search-result"
           element={<SearchResultPage />}
+        />
+
+        <Route
+          path="/stores/:storeId"
+          element={<Detail />}
         />
 
         <Route
