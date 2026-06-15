@@ -1,11 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 import Sidebar from "../components/Sidebar";
 import ShopCard from "../components/ShopCard";
-
 import { styles } from "../styles/styles";
 
+/**
+ * 🔥 バックエンドのデータ
+ */
+type ApiShop = {
+  id: string;
+  shopId: string;
+  sweetName: string;
+  shopName: string;
+  category: string;
+  price: number;
+  description: string;
+  tags: string[];
+  imageUrl: string;
+};
+
+/**
+ * 🔥 ShopCard用に変換した型
+ */
 type Shop = {
   storeId: string;
   name: string;
@@ -19,82 +36,78 @@ type Shop = {
 };
 
 export default function SearchResultPage() {
-  const [sidebarOpen, setSidebarOpen] =
-    useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const navigate = useNavigate();
-
   const [searchParams] = useSearchParams();
 
   const [query, setQuery] = useState(
     searchParams.get("keyword") || ""
   );
 
-  const handleSearch = () => {
-    navigate(
-      `/search-result?keyword=${encodeURIComponent(
-        query
-      )}`
-    );
-  };
-
-  const shops: Shop[] = [
-    {
-      storeId: "1",
-      name: "Cafe Bloom",
-      address: "北海道函館市○○町1-2-3",
-      time: "10:00〜20:00",
-      category: "カフェ・スイーツ",
-      price: "¥1,000〜¥2,000",
-      holiday: "水曜日",
-      image: "https://picsum.photos/300?1",
-      sweets: ["チーズケーキ", "プリン", "ショートケーキ"],
-    },
-    {
-      storeId: "2",
-      name: "珈琲館",
-      address: "北海道函館市△△町4-5-6",
-      time: "17:00〜23:00",
-      category: "コーヒー・洋菓子",
-      price: "¥3,000〜¥5,000",
-      holiday: "日曜日",
-      image: "https://picsum.photos/300?2",
-      sweets: ["ティラミス", "クッキー"],
-    },
-    {
-      storeId: "3",
-      name: "和菓子総本店",
-      address: "北海道函館市□□町7-8-9",
-      time: "11:00〜22:00",
-      category: "和菓子",
-      price: "¥2,000〜¥4,000",
-      holiday: "月曜日",
-      image: "https://picsum.photos/300?3",
-      sweets: ["大福", "どら焼き", "いちご大福"],
-    },
-  ];
+  const [shops, setShops] = useState<ApiShop[]>([]);
 
   const keyword =
     searchParams.get("keyword")?.trim().toLowerCase() || "";
 
-  const filteredShops = shops.filter((shop) =>
+  /**
+   * 🔥 バックエンド取得
+   */
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/api/search");
+        const data = await res.json();
+        setShops(data);
+      } catch (error) {
+        console.error("取得失敗:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  /**
+   * 🔥 ShopCard用に変換
+   */
+  const mappedShops: Shop[] = shops.map((item) => ({
+    storeId: item.shopId,
+    name: item.shopName,
+    address: "",
+    time: "",
+    category: item.category,
+    price: String(item.price),
+    holiday: "",
+    image: item.imageUrl,
+    sweets: [item.sweetName],
+  }));
+
+  /**
+   * 🔥 フロント検索フィルター
+   */
+  const filteredShops = mappedShops.filter((shop) =>
     shop.name.toLowerCase().includes(keyword) ||
     shop.category.toLowerCase().includes(keyword) ||
-    shop.sweets.some((sweet) =>
-      sweet.toLowerCase().includes(keyword)
+    shop.sweets.some((s) =>
+      s.toLowerCase().includes(keyword)
     )
   );
+
+  const handleSearch = () => {
+    navigate(
+      `/search-result?keyword=${encodeURIComponent(query)}`
+    );
+  };
 
   return (
     <div style={styles.body}>
       <Sidebar
         sidebarOpen={sidebarOpen}
-        closeSidebar={() =>
-          setSidebarOpen(false)
-        }
+        closeSidebar={() => setSidebarOpen(false)}
       />
 
       <main style={styles.main}>
+        {/* 🔍 search */}
         <div style={styles.searchBox}>
           <input
             type="text"
@@ -102,27 +115,28 @@ export default function SearchResultPage() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                handleSearch();
-               }
+              if (e.key === "Enter") handleSearch();
             }}
             style={styles.searchInput}
           />
+
           <button
-             type="button"
-             onClick={handleSearch}
-             style={{
-                marginLeft: "10px",
-                padding: "10px 14px",
-               cursor: "pointer",
-    }}
-  >
-     <span style={{ fontSize: "24px" }}>
-    🔍
-    </span>
-  </button>
+            type="button"
+            onClick={handleSearch}
+            style={{
+              marginLeft: "10px",
+              padding: "10px 14px",
+              cursor: "pointer",
+              fontSize: "20px",
+              border: "none",
+              background: "transparent",
+            }}
+          >
+            🔍
+          </button>
         </div>
 
+        {/* 🏪 results */}
         {filteredShops.map((shop) => (
           <Link
             key={shop.storeId}
