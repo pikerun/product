@@ -2,8 +2,8 @@ import { NavLink, Navigate, Outlet, Route, Routes } from "react-router-dom";
 import Detail from "./Detail";
 import Home from "./Home";
 import Search from "./Search";
-import "./App.css";
 import SearchResultPage from "./pages/SearchResultPage";
+import "./App.css";
 
 function AppShell() {
   return (
@@ -51,7 +51,6 @@ function AppShell() {
 function App() {
   return (
     <Routes>
-      {/* 店舗詳細 */}
       <Route path="/stores/:storeId" element={<Detail />} />
 
       <Route element={<AppShell />}>
@@ -60,11 +59,16 @@ function App() {
           element={<Navigate to="/search" replace />}
         />
 
-        <Route path="/home" element={<Home />} />
+        <Route
+          path="/home"
+          element={<Home />}
+        />
 
-        <Route path="/search" element={<Search />} />
+        <Route
+          path="/search"
+          element={<Search />}
+        />
 
-        {/* 検索結果画面 */}
         <Route
           path="/search-result"
           element={<SearchResultPage />}
