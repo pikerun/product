@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 import Sidebar from "../components/Sidebar";
 import ShopCard from "../components/ShopCard";
@@ -15,11 +15,28 @@ type Shop = {
   price: string;
   holiday: string;
   image: string;
+  sweets: string[];
 };
 
 export default function SearchResultPage() {
   const [sidebarOpen, setSidebarOpen] =
     useState(false);
+
+  const navigate = useNavigate();
+
+  const [searchParams] = useSearchParams();
+
+  const [query, setQuery] = useState(
+    searchParams.get("keyword") || ""
+  );
+
+  const handleSearch = () => {
+    navigate(
+      `/search-result?keyword=${encodeURIComponent(
+        query
+      )}`
+    );
+  };
 
   const shops: Shop[] = [
     {
@@ -31,6 +48,7 @@ export default function SearchResultPage() {
       price: "¥1,000〜¥2,000",
       holiday: "水曜日",
       image: "https://picsum.photos/300?1",
+      sweets: ["チーズケーキ", "プリン", "ショートケーキ"],
     },
     {
       storeId: "2",
@@ -41,6 +59,7 @@ export default function SearchResultPage() {
       price: "¥3,000〜¥5,000",
       holiday: "日曜日",
       image: "https://picsum.photos/300?2",
+      sweets: ["ティラミス", "クッキー"],
     },
     {
       storeId: "3",
@@ -51,8 +70,20 @@ export default function SearchResultPage() {
       price: "¥2,000〜¥4,000",
       holiday: "月曜日",
       image: "https://picsum.photos/300?3",
+      sweets: ["大福", "どら焼き", "いちご大福"],
     },
   ];
+
+  const keyword =
+    searchParams.get("keyword")?.trim().toLowerCase() || "";
+
+  const filteredShops = shops.filter((shop) =>
+    shop.name.toLowerCase().includes(keyword) ||
+    shop.category.toLowerCase().includes(keyword) ||
+    shop.sweets.some((sweet) =>
+      sweet.toLowerCase().includes(keyword)
+    )
+  );
 
   return (
     <div style={styles.body}>
@@ -68,11 +99,31 @@ export default function SearchResultPage() {
           <input
             type="text"
             placeholder="検索..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+               }
+            }}
             style={styles.searchInput}
           />
+          <button
+             type="button"
+             onClick={handleSearch}
+             style={{
+                marginLeft: "10px",
+                padding: "10px 14px",
+               cursor: "pointer",
+    }}
+  >
+     <span style={{ fontSize: "24px" }}>
+    🔍
+    </span>
+  </button>
         </div>
 
-        {shops.map((shop) => (
+        {filteredShops.map((shop) => (
           <Link
             key={shop.storeId}
             to={`/stores/${shop.storeId}`}

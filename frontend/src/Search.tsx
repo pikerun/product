@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { styles } from "./styles/styles";
 import { useMemo, useState } from "react";
 
 type ShopItem = {
@@ -109,30 +110,36 @@ const Search = () => {
 
   return (
     <section className="search-layout">
-      <div className="search-bar">
+      <div style={styles.searchBox}>
         <input
-          type="text"
-          className="search-input"
-          placeholder="スイーツ名・お店名で検索"
-          value={query}
-          onChange={(event) =>
-            setQuery(event.target.value)
+           type="text"
+           placeholder="スイーツ名・お店名で検索"
+           value={query}
+           onChange={(event) =>
+               setQuery(event.target.value)
           }
           onKeyDown={(event) => {
             if (event.key === "Enter") {
               handleSearch();
-            }
+          }
           }}
-        />
+          style={styles.searchInput}
+  />
 
-        <button
-          type="button"
-          className="search-icon"
-          onClick={handleSearch}
-        >
-          🔍
-        </button>
-      </div>
+          <button
+           type="button"
+           onClick={handleSearch}
+           style={{
+                marginLeft: "10px",
+                padding: "10px 14px",
+               cursor: "pointer",
+           }}
+            >
+              <span style={{ fontSize: "24px" }}>
+             🔍
+             </span>
+          </button>
+     </div>
 
       {/* 上段：スイーツ画像 */}
       <div className="photo-strip">
