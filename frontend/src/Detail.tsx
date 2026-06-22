@@ -1,81 +1,43 @@
-import { useCallback, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useCallback, useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   FiChevronLeft,
   FiChevronRight,
   FiClock,
-  FiInfo,
   FiMapPin,
   FiX,
+  FiPhone,
 } from "react-icons/fi";
 import { LuCake } from "react-icons/lu";
-import { TbCurrencyYen } from "react-icons/tb";
 
-/** 画像どおりのクリーンなサンセリフ（日本語UI向け） */
+import { getStoreDetails } from "../../backend/src/mocks/stores/storesMock";
+
 const FONT =
   '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", "Meiryo", "Segoe UI", sans-serif';
 
-const shopInfo = [
-  {
-    icon: <FiMapPin size={16} />,
-    label: "住所",
-    value: "北海道函館市○○町1-2-3",
-  },
-  {
-    icon: <FiClock size={16} />,
-    label: "営業時間",
-    value: "10:00 ～ 20:00",
-  },
-  {
-    icon: <LuCake size={16} />,
-    label: "ジャンル",
-    value: "カフェ・スイーツ",
-  },
-  {
-    icon: <TbCurrencyYen size={16} />,
-    label: "価格帯",
-    value: "¥1,000〜¥2,000",
-  },
-  {
-    icon: <FiInfo size={16} />,
-    label: "お店情報",
-    value:
-      "函館の新鮮な素材を活かしたこだわりのスイーツを提供しています。落ち着いた店内でゆっくりとお過ごしください。",
-  },
-];
+// 擬似的にAPI通信（非同期）で店舗詳細を1件取得する関数
+const fetchStoreById = async (id: string | undefined) => {
 
-const menuItems = [
-  { name: "チョコケーキ", price: "¥450" },
-  { name: "抹茶パフェ", price: "¥600" },
-  { name: "函館プリン", price: "¥350" },
-];
+  // 配列の中から storeId が一致するものを探す
+  const store = getStoreDetails.find((s) => s.storeId === id);
+  return store || null;
+};
 
+// 店舗写真（バックエンドに写真データがない場合のフォールバック用、または共通利用）
 const unsplash = (id: string) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=800&q=80`;
 
-/** 店舗写真（API連携時はここを差し替え） */
+
+// 店舗写真
 const STORE_PHOTOS = [
-  {
-    id: "exterior",
-    src: unsplash("photo-1554118811-1e0d58224f24"),
-    alt: "お店の外観",
-  },
-  {
-    id: "interior",
-    src: unsplash("photo-1556910103-1c02745aae4d"),
-    alt: "店内",
-  },
-  {
-    id: "sweets",
-    src: unsplash("photo-1565958011703-44f9829ba187"),
-    alt: "スイーツ",
-  },
+  { id: "exterior", src: unsplash("photo-1554118811-1e0d58224f24"), alt: "お店の外観" },
+  { id: "interior", src: unsplash("photo-1556910103-1c02745aae4d"), alt: "店内" },
 ];
 
 type StorePhoto = (typeof STORE_PHOTOS)[number];
 
 const HERO_HEIGHT = 176;
-/** 店舗詳細欄（content）の上余白と揃える */
+//店舗詳細欄の上余白と揃える
 const SECTION_GAP = 8;
 
 function HeroCarousel({ photos }: { photos: StorePhoto[] }) {
@@ -190,6 +152,57 @@ function HeroSlide({ photo, count }: { photo: StorePhoto; count: number }) {
 
 const Detail = () => {
   const navigate = useNavigate();
+  const { storeId } = useParams<{ storeId: string }>(); 
+  // URL から :storeId を取得（例: /detail/1）
+
+  // 状態管理
+  const [store, setStore] = useState<typeof getStoreDetails[number] | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  // コンポーネント読み込み時にデータを引っ張ってくる
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadData = async () => {
+      try {
+        setLoading(true);
+        // URLのstoreId（なければとりあえず "1" をデフォルトにする等）を渡して検索
+        const data = await fetchStoreById(storeId || "1");
+        if (isMounted) {
+          setStore(data);
+        }
+      } catch (error) {
+        console.error("データ取得に失敗しました", error);
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    loadData();
+    return () => { isMounted = false; };
+  }, [storeId]);
+
+  if (loading) {
+    return <div style={{ padding: 20, textAlign: "center", fontFamily: FONT }}>読み込み中...</div>;
+  }
+
+  if (!store) {
+    return <div style={{ padding: 20, textAlign: "center", fontFamily: FONT }}>店舗情報が見つかりませんでした。</div>;
+  }
+
+  // バックエンドのフラットなデータを、コンポーネントの表示用ループにマッピングする配列を作成
+  const formattedShopInfo = [
+    { icon: <FiMapPin size={16} />, label: "住所", value: store.address },
+    { icon: <FiPhone size={16} />, label: "電話番号", value: store.phoneNumber },
+    { icon: <FiClock size={16} />, label: "営業時間", value: store.openingHours },
+    { 
+      icon: <LuCake size={16} />, 
+      label: "利用形態", 
+      value: `${store.eatIn ? "イートイン可" : ""} ${store.takeOut ? "テイクアウト可" : ""}`.trim() || "情報なし"
+    },
+  ];
 
   return (
     <div className="detail-page">
@@ -202,7 +215,7 @@ const Detail = () => {
         >
           <FiX size={22} />
         </button>
-        <h1 className="detail-store-header-title">Cafe Bloom</h1>
+        <h1 className="detail-store-header-title">{store.storeName}</h1>
         <div className="detail-store-header-spacer" />
       </header>
 
@@ -210,7 +223,7 @@ const Detail = () => {
 
       <main style={styles.content}>
         <section style={styles.card}>
-          {shopInfo.map((item) => (
+          {formattedShopInfo.map((item) => (
             <div key={item.label} style={styles.infoRow}>
               <div style={styles.infoIcon}>{item.icon}</div>
               <div style={styles.infoBody}>
@@ -224,11 +237,11 @@ const Detail = () => {
         <section style={styles.card}>
           <h2 style={styles.sectionTitle}>メニュー</h2>
           <div style={styles.menuGrid}>
-            {menuItems.map((item) => (
-              <article key={item.name} style={styles.menuItem}>
-                <div style={styles.menuImage}>画像</div>
-                <h3 style={styles.menuName}>{item.name}</h3>
-                <p style={styles.menuPrice}>{item.price}</p>
+            {store.sweets.map((sweet) => (
+              <article key={sweet.sweetId} style={styles.menuItem}>
+                <div style={styles.menuImage}>{sweet.type}</div>
+                <h3 style={styles.menuName}>{sweet.sweetName}</h3>
+                <p style={styles.menuPrice}>¥{sweet.price.toLocaleString()}</p>
               </article>
             ))}
           </div>
