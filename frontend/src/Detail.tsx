@@ -28,7 +28,7 @@ const unsplash = (id: string) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=800&q=80`;
 
 
-// 店舗写真
+// 店舗写真(モックにないので直置き)
 const STORE_PHOTOS = [
   { id: "exterior", src: unsplash("photo-1554118811-1e0d58224f24"), alt: "お店の外観" },
   { id: "interior", src: unsplash("photo-1556910103-1c02745aae4d"), alt: "店内" },
@@ -218,8 +218,11 @@ const Detail = () => {
         <h1 className="detail-store-header-title">{store.storeName}</h1>
         <div className="detail-store-header-spacer" />
       </header>
-
+      
       <HeroCarousel photos={STORE_PHOTOS} />
+      {/* バックエンドから画像を持ってくるには↓ */}
+      {/* <HeroCarousel photos={store.(配列名) || []} /> */}
+
 
       <main style={styles.content}>
         <section style={styles.card}>
