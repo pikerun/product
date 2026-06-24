@@ -10,17 +10,64 @@ import {
 } from "react-icons/fi";
 import { LuCake } from "react-icons/lu";
 
-import { getStoreDetails } from "../../backend/src/mocks/stores/storesMock";
+import sweets from "../../backend/src/mocks/sweets.json";
 
 const FONT =
   '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", "Meiryo", "Segoe UI", sans-serif';
 
-// 擬似的にAPI通信（非同期）で店舗詳細を1件取得する関数
-const fetchStoreById = async (id: string | undefined) => {
+  type Sweet = {
+  sweetId: string;
+  sweetName: string;
+  price: number;
+  type: string;
+  image: string;
+};
 
-  // 配列の中から storeId が一致するものを探す
-  const store = getStoreDetails.find((s) => s.storeId === id);
-  return store || null;
+type Store = {
+  storeId: string;
+  storeName: string;
+
+  address: string;
+  phoneNumber: string;
+  openingHours: string;
+
+  eatIn: boolean;
+  takeOut: boolean;
+
+  sweets: Sweet[];
+};
+
+// 擬似的にAPI通信（非同期）で店舗詳細を1件取得する関数
+const fetchStoreById = async ( id: string | undefined ): Promise<Store | null> => {
+  //console.log("URL storeId:", id);
+  //console.log("JSON:", sweets);
+
+  if (!id) return null;
+
+  const storeSweets = sweets.filter((s) => s.shopId === id);
+
+  if (storeSweets.length === 0) return null;
+
+  // 店舗情報に整形
+  return {
+    storeId: id,
+    storeName: storeSweets[0].shopName,
+
+    // 仮データ（今モックにない）
+    address: "住所未設定",
+    phoneNumber: "未設定",
+    openingHours: "未設定",
+    eatIn: false,
+    takeOut: true,
+
+    sweets: storeSweets.map((s) => ({
+      sweetId: s.id,
+      sweetName: s.sweetName,
+      price: s.price,
+      type: s.category,
+      image: s.image_url,
+    })),
+  };
 };
 
 // 店舗写真（バックエンドに写真データがない場合のフォールバック用、または共通利用）
@@ -156,7 +203,8 @@ const Detail = () => {
   // URL から :storeId を取得（例: /detail/1）
 
   // 状態管理
-  const [store, setStore] = useState<typeof getStoreDetails[number] | null>(null);
+  //後で型定義(any)
+  const [store, setStore] = useState<Store | null>(null);
   const [loading, setLoading] = useState(true);
 
   // コンポーネント読み込み時にデータを引っ張ってくる
@@ -164,21 +212,28 @@ const Detail = () => {
     let isMounted = true;
 
     const loadData = async () => {
-      try {
-        setLoading(true);
-        // URLのstoreId（なければとりあえず "1" をデフォルトにする等）を渡して検索
-        const data = await fetchStoreById(storeId || "1");
-        if (isMounted) {
-          setStore(data);
-        }
-      } catch (error) {
-        console.error("データ取得に失敗しました", error);
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
-      }
-    };
+  try {
+    setLoading(true);
+
+    const normalizedStoreId =
+      storeId?.startsWith("shop")
+        ? storeId
+        : `shop${String(storeId).padStart(2, "0")}`;
+
+    const data =
+      await fetchStoreById(normalizedStoreId);
+
+    if (isMounted) {
+      setStore(data);
+    }
+  } catch (error) {
+    console.error("データ取得に失敗しました", error);
+  } finally {
+    if (isMounted) {
+      setLoading(false);
+    }
+  }
+};
 
     loadData();
     return () => { isMounted = false; };
@@ -194,15 +249,27 @@ const Detail = () => {
 
   // バックエンドのフラットなデータを、コンポーネントの表示用ループにマッピングする配列を作成
   const formattedShopInfo = [
-    { icon: <FiMapPin size={16} />, label: "住所", value: store.address },
-    { icon: <FiPhone size={16} />, label: "電話番号", value: store.phoneNumber },
-    { icon: <FiClock size={16} />, label: "営業時間", value: store.openingHours },
-    { 
-      icon: <LuCake size={16} />, 
-      label: "利用形態", 
-      value: `${store.eatIn ? "イートイン可" : ""} ${store.takeOut ? "テイクアウト可" : ""}`.trim() || "情報なし"
-    },
-  ];
+  {
+    icon: <FiMapPin size={16} />,
+    label: "住所",
+    value: "未設定",
+  },
+  {
+    icon: <FiPhone size={16} />,
+    label: "電話番号",
+    value: "未設定",
+  },
+  {
+    icon: <FiClock size={16} />,
+    label: "営業時間",
+    value: "未設定",
+  },
+  {
+    icon: <LuCake size={16} />,
+    label: "利用形態",
+    value: "情報なし",
+  },
+];
 
   return (
     <div className="detail-page">
@@ -211,7 +278,6 @@ const Detail = () => {
           type="button"
           className="detail-store-header-button"
           aria-label="閉じる"
-          onClick={() => navigate(-1)}
         >
           <FiX size={22} />
         </button>
@@ -242,9 +308,16 @@ const Detail = () => {
           <div style={styles.menuGrid}>
             {store.sweets.map((sweet) => (
               <article key={sweet.sweetId} style={styles.menuItem}>
-                <div style={styles.menuImage}>{sweet.type}</div>
-                <h3 style={styles.menuName}>{sweet.sweetName}</h3>
-                <p style={styles.menuPrice}>¥{sweet.price.toLocaleString()}</p>
+                <img
+                  src={sweet.image}
+                  alt={sweet.sweetName}
+                  style={styles.menuImage}
+                />
+                <h3 style={styles.menuName}>
+                  {sweet.sweetName}</h3>
+                <p style={styles.menuPrice}>
+                  ¥{sweet.price.toLocaleString()}
+                </p>
               </article>
             ))}
           </div>
@@ -393,21 +466,22 @@ const styles = {
     fontFamily: FONT,
   },
   menuGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-    gap: 10,
+  display: "grid",
+  gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+  gap: 12,
   },
-  menuItem: { margin: 0 },
+  menuItem: { 
+    width: "100%",
+    minWidth: 0,
+  },
   menuImage: {
-    height: 86,
-    borderRadius: 10,
-    backgroundColor: "#efefef",
-    display: "grid",
-    placeItems: "center",
-    color: "#c5c5c5",
-    fontSize: 12,
-    marginBottom: 8,
-  },
+  width: "100%",
+  height: 86,
+  borderRadius: 10,
+  objectFit: "cover" as const,
+  backgroundColor: "#efefef",
+  marginBottom: 8,
+},
   menuName: {
     margin: "0 0 2px",
     fontSize: 15,
